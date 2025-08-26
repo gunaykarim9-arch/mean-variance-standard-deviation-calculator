@@ -3,42 +3,39 @@ import numpy as np
 def calculate(numbers):
     if len(numbers) != 9:
         raise ValueError("List must contain nine numbers.")
-    
-    # Convert list into 3x3 numpy array
-    arr = np.array(numbers).reshape(3, 3)
-    
-    calculations = {
+
+    a = np.array(numbers).reshape(3, 3)
+
+    result = {
         'mean': [
-            arr.mean(axis=0).tolist(),   # mean of columns
-            arr.mean(axis=1).tolist(),   # mean of rows
-            arr.mean().item()            # mean of entire matrix
+            a.mean(axis=0).tolist(),      # columns
+            a.mean(axis=1).tolist(),      # rows
+            a.mean().item()               # flattened
         ],
         'variance': [
-            arr.var(axis=0).tolist(),
-            arr.var(axis=1).tolist(),
-            arr.var().item()
+            a.var(axis=0).tolist(),
+            a.var(axis=1).tolist(),
+            a.var().item()
         ],
         'standard deviation': [
-            arr.std(axis=0).tolist(),
-            arr.std(axis=1).tolist(),
-            arr.std().item()
+            a.std(axis=0).tolist(),
+            a.std(axis=1).tolist(),
+            a.std().item()
         ],
         'max': [
-            arr.max(axis=0).tolist(),
-            arr.max(axis=1).tolist(),
-            arr.max().item()
+            a.max(axis=0).tolist(),
+            a.max(axis=1).tolist(),
+            a.max().item()
         ],
         'min': [
-            arr.min(axis=0).tolist(),
-            arr.min(axis=1).tolist(),
-            arr.min().item()
+            a.min(axis=0).tolist(),
+            a.min(axis=1).tolist(),
+            a.min().item()
         ],
         'sum': [
-            arr.sum(axis=0).tolist(),
-            arr.sum(axis=1).tolist(),
-            arr.sum().item()
+            a.sum(axis=0).tolist(),
+            a.sum(axis=1).tolist(),
+            a.sum().item()
         ]
     }
-    
-    return calculations
-
+    return result
